@@ -33,3 +33,6 @@ CROSS APPLY sys.dm_exec_query_plan(r.plan_handle) qp
 WHERE s.is_user_process = 1 -- Exclude background system tasks
   AND r.session_id <> @@SPID -- Exclude this script itself
 ORDER BY r.cpu_time DESC;
+
+--quick log check
+SELECT name, log_reuse_wait_desc FROM sys.databases;
